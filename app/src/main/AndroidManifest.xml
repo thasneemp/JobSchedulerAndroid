@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="lib.muhammed.com.androidjbscheduler">
 
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,6 +17,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service
+            android:name=".TestJobService"
+            android:label="Word services"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <receiver android:name=".MyStartServiceReceiver">
+            <intent-filter>
+                <action android:name="com.muhammed.action.ACTION_TEST" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
